@@ -45,24 +45,22 @@ export default {
         interval = setInterval(() => {
             this.now = Math.trunc((new Date()).getTime() / 1000)
         }, 1000)
-
-        console.log(interval)
     },
     computed: {
         seconds() {
-            return Math.trunc(this.diff) % 60
+            return Math.abs(Math.trunc(this.diff) % 60)
         },
 
         minutes() {
-            return Math.trunc(this.diff / 60) % 60
+            return Math.abs(Math.trunc(this.diff / 60) % 60)
         },
 
         hours() {
-            return Math.trunc(this.diff / 60 / 60) % 24
+            return Math.abs(Math.trunc(this.diff / 60 / 60) % 24)
         },
 
         days() {
-            return Math.trunc(this.diff / 60 / 60 / 24)
+            return Math.abs(Math.trunc(this.diff / 60 / 60 / 24))
         }
     },
     watch: {
